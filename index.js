@@ -9,7 +9,7 @@ const server = express();
 const productController = new ProductController();
 
 //setting path for static file routing
-server.use(express.static("src/views"));
+server.use(express.static("public"));
 
 //setting ejs
 server.set("view engine", "ejs");
@@ -36,6 +36,9 @@ server.get("/update-product/:id", productController.getUpdateView);
 
 //posting the updated product
 server.post("/update-product", productController.postUpdateProduct);
+
+// deleting the product
+server.post("/delete-product/:id", productController.deleteProduct);
 
 server.listen(3300, () => {
   console.log("server is running on port 3300");
