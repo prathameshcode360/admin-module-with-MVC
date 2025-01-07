@@ -10,4 +10,10 @@ export default class ProductController {
   renderAddProduct(req, res) {
     res.render("addProduct");
   }
+  addNewProduct(req, res) {
+    // console.log(req.body);
+    ProductModel.add(req.body);
+    let products = ProductModel.getAll();
+    res.render("index", { products: products });
+  }
 }

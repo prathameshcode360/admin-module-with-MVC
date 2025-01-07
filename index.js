@@ -18,11 +18,18 @@ server.set("views", path.join(path.resolve(), "src", "views"));
 //setting ejs layput
 server.use(expressEjsLayouts);
 
+//setting urlEncoded
+
+server.use(express.urlencoded({ extended: true }));
+
 //routing on products page(home page)
 server.get("/", productController.getProducts);
 
 //routing on addProduct Page...
 server.get("/addProduct", productController.renderAddProduct);
+
+// posting new product and routung on home page
+server.post("/", productController.addNewProduct);
 
 server.listen(3300, () => {
   console.log("server is running on port 3300");
