@@ -35,10 +35,7 @@ server.post("/", validation, productController.addNewProduct);
 server.get("/update-product/:id", productController.getUpdateView);
 
 //posting the updated product
-server.post("/update-product", productController.postUpdateProduct);
-
-//routing on delete page
-server.get("/delete-product/:id", productController.deleteProduct);
+server.post("/update-product", validation, productController.postUpdateProduct);
 
 server.listen(3300, () => {
   console.log("server is running on port 3300");
