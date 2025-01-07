@@ -1,0 +1,40 @@
+<section class="add-product">
+  <div class="form-container">
+    <%if(errorMessage){%>
+    <div class="alert alert-danger" role="alert"><%=errorMessage%></div>
+    <% }%>
+    <form action="/" method="post">
+      <input type="hidden" name="id" />
+      <label for="name">Product Name</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="enter product name"
+        value="<%=product.name%>" />
+
+      <label for="desc">Product Description</label>
+      <textarea name="desc" id="desc" placeholder="enter product description">
+      <%=product.desc%></textarea
+      >
+
+      <label for="price">Price</label>
+      <input
+        type="number"
+        name="price"
+        id="price"
+        placeholder="enter valid product price"
+        value="<%=product.price%>" />
+
+      <label for="image">Image</label>
+      <input
+        type="text"
+        name="image"
+        id="image"
+        placeholder="image URL"
+        value="<%=product.image%>" />
+
+      <input type="submit" value="Update" />
+    </form>
+  </div>
+</section>

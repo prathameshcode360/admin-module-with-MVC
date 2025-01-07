@@ -31,6 +31,9 @@ server.get("/addProduct", productController.renderAddProduct);
 // posting new product and routung on home page
 server.post("/", validation, productController.addNewProduct);
 
+//routing on update product page
+server.get("/update-product/:id", productController.getUpdateView);
+
 server.listen(3300, () => {
   console.log("server is running on port 3300");
 });
