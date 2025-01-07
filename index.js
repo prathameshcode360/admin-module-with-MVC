@@ -1,5 +1,6 @@
 import express from "express";
 import path from "path";
+import expressEjsLayouts from "express-ejs-layouts";
 import ProductController from "./src/controllers/product.controller.js";
 
 const server = express();
@@ -13,6 +14,9 @@ server.use(express.static("src/views"));
 //setting ejs
 server.set("view engine", "ejs");
 server.set("views", path.join(path.resolve(), "src", "views"));
+
+//setting ejs layput
+server.use(expressEjsLayouts);
 
 server.get("/", productController.getProducts);
 
