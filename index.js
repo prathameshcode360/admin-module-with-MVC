@@ -2,7 +2,7 @@ import express from "express";
 import path from "path";
 import expressEjsLayouts from "express-ejs-layouts";
 import ProductController from "./src/controllers/product.controller.js";
-
+import validation from "./src/middlewares/validation.middleware.js";
 const server = express();
 
 //instantiated product controller
@@ -29,7 +29,7 @@ server.get("/", productController.getProducts);
 server.get("/addProduct", productController.renderAddProduct);
 
 // posting new product and routung on home page
-server.post("/", productController.addNewProduct);
+server.post("/", validation, productController.addNewProduct);
 
 server.listen(3300, () => {
   console.log("server is running on port 3300");
