@@ -3,8 +3,8 @@
     <%if(errorMessage){%>
     <div class="alert alert-danger" role="alert"><%=errorMessage%></div>
     <% }%>
-    <form action="/" method="post">
-      <input type="hidden" name="id" />
+    <form action="/update-product" method="post">
+      <input type="hidden" name="id" id="id" value="<%=product.id%>" />
       <label for="name">Product Name</label>
       <input
         type="text"

@@ -27,4 +27,9 @@ export default class ProductController {
       res.status(401).send("product not found");
     }
   }
+  postUpdateProduct(req, res) {
+    ProductModel.update(req.body);
+    let products = ProductModel.getAll();
+    res.render("index", { products: products });
+  }
 }
