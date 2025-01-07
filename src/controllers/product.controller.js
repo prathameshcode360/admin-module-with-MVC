@@ -6,4 +6,8 @@ export default class ProductController {
     // console.log(products);
     res.render("index", { products: products });
   }
+
+  renderAddProduct(req, res) {
+    res.render("addProduct");
+  }
 }

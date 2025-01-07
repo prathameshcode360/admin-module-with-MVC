@@ -18,7 +18,11 @@ server.set("views", path.join(path.resolve(), "src", "views"));
 //setting ejs layput
 server.use(expressEjsLayouts);
 
+//routing on products page(home page)
 server.get("/", productController.getProducts);
+
+//routing on addProduct Page...
+server.get("/addProduct", productController.renderAddProduct);
 
 server.listen(3300, () => {
   console.log("server is running on port 3300");
