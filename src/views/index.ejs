@@ -29,27 +29,15 @@
               </tr>
             </thead>
             <tbody>
+              <% products.forEach((product)=>{%>
               <tr>
-                <td>1</td>
-                <td>Product 1</td>
-                <td>This is description for product 1</td>
-                <td>200</td>
-                <td><img src="" alt="product-image" /></td>
+                <td><%=product.id%></td>
+                <td><%=product.name%></td>
+                <td><%=product.desc%></td>
+                <td><%=product.price%></td>
+                <td><img src="<%=product.image%>" alt="product-image" /></td>
               </tr>
-              <tr>
-                <td>2</td>
-                <td>Product 2</td>
-                <td>This is description for product 2</td>
-                <td>200</td>
-                <td><img src="" alt="product-image" /></td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Product 3</td>
-                <td>This is description for product 3</td>
-                <td>200</td>
-                <td><img src="" alt="product-image" /></td>
-              </tr>
+              <% }) %>
             </tbody>
           </table>
         </div>

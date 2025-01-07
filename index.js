@@ -1,4 +1,5 @@
 import express from "express";
+import path from "path";
 import ProductController from "./src/controllers/product.controller.js";
 
 const server = express();
@@ -8,6 +9,10 @@ const productController = new ProductController();
 
 //setting path for static file routing
 server.use(express.static("src/views"));
+
+//setting ejs
+server.set("view engine", "ejs");
+server.set("views", path.join(path.resolve(), "src", "views"));
 
 server.get("/", productController.getProducts);
 
