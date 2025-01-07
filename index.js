@@ -29,13 +29,16 @@ server.get("/", productController.getProducts);
 server.get("/addProduct", productController.renderAddProduct);
 
 // posting new product and routung on home page
-server.post("/", productController.addNewProduct);
+server.post("/", validation, productController.addNewProduct);
 
 //routing on update product page
 server.get("/update-product/:id", productController.getUpdateView);
 
 //posting the updated product
-server.post("/update-product", validation, productController.postUpdateProduct);
+server.post("/update-product", productController.postUpdateProduct);
+
+//routing on delete page
+server.get("/delete-product/:id", productController.deleteProduct);
 
 server.listen(3300, () => {
   console.log("server is running on port 3300");
